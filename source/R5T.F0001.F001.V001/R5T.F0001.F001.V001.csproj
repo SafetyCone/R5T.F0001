@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\R5T.B0001.Z0001\source\R5T.B0001.Z0001\R5T.B0001.Z0001.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0119\source\R5T.T0119.X001\R5T.T0119.X001.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0120\source\R5T.T0120.X002\R5T.T0120.X002.csproj" />
+    <ProjectReference Include="..\R5T.F0001.F001\R5T.F0001.F001.csproj" />
+    <ProjectReference Include="..\R5T.F0001.Z001\R5T.F0001.Z001.csproj" />
+  </ItemGroup>
+
+</Project>

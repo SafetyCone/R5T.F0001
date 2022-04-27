@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Code Files\Basic Service Definition.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Code Files\Basic Service Definition.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\R5T.T0045\source\R5T.T0045.X001\R5T.T0045.X001.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0119\source\R5T.T0119.X001\R5T.T0119.X001.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0120\source\R5T.T0120.X002\R5T.T0120.X002.csproj" />
+    <ProjectReference Include="..\..\..\R5T.X0004\source\R5T.X0004\R5T.X0004.csproj" />
+    <ProjectReference Include="..\R5T.F0001.F002\R5T.F0001.F002.csproj" />
+    <ProjectReference Include="..\R5T.F0001.Z001\R5T.F0001.Z001.csproj" />
+  </ItemGroup>
+
+</Project>
