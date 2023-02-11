@@ -154,11 +154,11 @@ namespace R5T.F0001.F002
             var attributeTypesFound = isAttributeTypeByAttributeType
                 .Where(x => x.Value.Exists)
                 .Select(x => x.Key)
-                .Now();
+                .Now_OLD();
 
             var output = attributeTypesFound
                 .Select(xAttributeType => attributesByAttributeTypes[xAttributeType])
-                .Now();
+                .Now_OLD();
 
             return WasFound.FromArray(output);
         }
@@ -200,7 +200,7 @@ namespace R5T.F0001.F002
             var baseTypesFound = isBaseTypeByBaseTypeType
                 .Where(x => x.Value.Exists)
                 .Select(x => x.Key)
-                .Now();
+                .Now_OLD();
 
             var output = baseTypesFound
                 .Select(xAttributeType => baseTypesByBaseTypeType[xAttributeType])
@@ -264,7 +264,7 @@ namespace R5T.F0001.F002
 
             var baseTypeTypes = hasBaseTypes.Result
                 .Select(x => x.Type)
-                .Now();
+                .Now_OLD();
 
             compilationUnit = compilationUnit.AnnotateNodes_Typed(
                 baseTypeTypes,
@@ -280,9 +280,9 @@ namespace R5T.F0001.F002
             var baseTypeNamespacedTypeNamesFound = baseTypeNamespacedTypeNamesByTypedAnnotation.Values
                 .Where(x => x.Exists)
                 .Select(x => x.Result)
-                .Now();
+                .Now_OLD();
 
-            var noBaseTypeNamespacedTypeNameWasFound = baseTypeNamespacedTypeNamesFound.None();
+            var noBaseTypeNamespacedTypeNameWasFound = baseTypeNamespacedTypeNamesFound.None_OLD();
             if (noBaseTypeNamespacedTypeNameWasFound)
             {
                 return FunctionResult.Failure<string>("No base type was recognized among the available namespaced type names.");
@@ -416,7 +416,7 @@ namespace R5T.F0001.F002
                         DestinationName = x.DestinationName,
                         SourceName = x.SourceNameExpression,
                     })
-                    .Now();
+                    .Now_OLD();
 
                 // Now perform string operations.
                 var namespacedTypeNameWasFound = _.TryGuessNamespacedTypeName(
@@ -446,7 +446,7 @@ namespace R5T.F0001.F002
             var availableUsingDirectives = node.GetAvailableUsingDirectives();
 
             var availableNamespaceNames = availableUsingDirectives.GetUsingNamespaceNames()
-                .Now();
+                .Now_OLD();
 
             var availableTypeNameAliases = availableUsingDirectives.GetUsingNameAliases()
                 // Convert between different name alias types.
@@ -455,7 +455,7 @@ namespace R5T.F0001.F002
                     DestinationName = x.DestinationName,
                     SourceName = x.SourceNameExpression,
                 })
-                .Now();
+                .Now_OLD();
 
             return (containingNamespaceName, availableNamespaceNames, availableTypeNameAliases);
         }
@@ -498,7 +498,7 @@ namespace R5T.F0001.F002
             {
                 var attributeTypeNames = hasAttributes.Result
                     .Select(x => x.Name)
-                    .Now();
+                    .Now_OLD();
 
                 var namespacedTypeNamesByType = _.TryGuessNamespacedTypeNames(
                     new[]
@@ -529,7 +529,7 @@ namespace R5T.F0001.F002
             {
                 var baseTypeTypes = hasBaseTypes.Result
                     .Select(x => x.Type)
-                    .Now();
+                    .Now_OLD();
 
                 var namespacedTypeNamesByType = _.TryGuessNamespacedTypeNames(
                     EnumerableHelper.From(namespacedTypeName),

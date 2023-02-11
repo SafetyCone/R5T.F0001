@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Additions;
 using System.Collections.Generic;
-
+using R5T.F0000.T000;
 using R5T.T0120;
 using R5T.T0129;
 
@@ -29,7 +29,7 @@ namespace R5T.F0001.Z001
                     Instances.NamespaceName.OtherAvailableNamespaceNames(),
                     Instances.TypeNameAlias.AvailableNameAliases()),
                 Output = Instances.NamespacedTypeName.R5T_S0030_Repositories_IServiceRepository(),
-                OutputEqualityComparer = ComparisonBasedEqualityComparer.From<string>((x, y) => x == y),
+                OutputEqualityComparer = new FunctionBasedEqualityComparer<string>((x, y) => x == y),
             };
 
             return output;
